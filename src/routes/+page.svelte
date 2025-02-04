@@ -2,10 +2,7 @@
 	import "$lib/styles/variables.scss";
 
 	import About from "$lib/components/index/About.svelte";
-	import Contact from "$lib/components/index/Contact.svelte";
 	import Hero from "$lib/components/index/Hero.svelte";
-	import Projects from "$lib/components/index/Projects.svelte";
-	import Skills from "$lib/components/index/Skills.svelte";
 	import Seo from "$lib/components/meta/SEO.svelte";
 </script>
 
@@ -26,7 +23,7 @@
 	<Hero />
 
 	<About />
-	<Skills />
+	<!-- <Skills /> -->
 
 	<!-- <Projects /> -->
 

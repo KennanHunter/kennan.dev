@@ -101,7 +101,6 @@
 					<label for="message">Message </label>
 					<br />
 					<textarea
-						type="text"
 						name="message"
 						id="message"
 						bind:value={data.message}
