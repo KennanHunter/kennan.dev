@@ -1,0 +1,13 @@
+@import "reset.css";
+
+html,
+body {
+  background-color: #232323;
+  color: white;
+
+  font-size: larger;
+
+  font-family: sans-serif;
+
+  margin: 0.6em;
+}
