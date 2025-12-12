@@ -25,6 +25,9 @@ importers:
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
+      prettier-plugin-astro:
+        specifier: ^0.14.1
+        version: 0.14.1
       sharp:
         specifier: ^0.34.3
         version: 0.34.5
@@ -2503,6 +2506,13 @@ packages:
       }
     engines: { node: ^10 || ^12 || >=14 }
 
+  prettier-plugin-astro@0.14.1:
+    resolution:
+      {
+        integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==,
+      }
+    engines: { node: ^14.15.0 || >=16.0.0 }
+
   prettier@3.7.4:
     resolution:
       {
@@ -2693,6 +2703,18 @@ packages:
     engines: { node: ">=18.0.0", npm: ">=8.0.0" }
     hasBin: true
 
+  s.color@0.0.15:
+    resolution:
+      {
+        integrity: sha512-AUNrbEUHeKY8XsYr/DYpl+qk5+aM+DChopnWOPEzn8YKzOhv4l2zH6LzZms3tOZP3wwdOyc0RmTciyi46HLIuA==,
+      }
+
+  sass-formatter@0.7.9:
+    resolution:
+      {
+        integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==,
+      }
+
   sax@1.4.3:
     resolution:
       {
@@ -2817,6 +2839,12 @@ packages:
     resolution:
       {
         integrity: sha512-LIN7rULI0jBscWQYaSswptyderlarFkjQ+t79nzty8tcIAceVomEVlLzH5VP4Cmsv6MtKhs7qaAiwlcp+Mgaxw==,
+      }
+
+  suf-log@2.5.3:
+    resolution:
+      {
+        integrity: sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow==,
       }
 
   svgo@4.0.0:
@@ -4986,6 +5014,12 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  prettier-plugin-astro@0.14.1:
+    dependencies:
+      "@astrojs/compiler": 2.13.0
+      prettier: 3.7.4
+      sass-formatter: 0.7.9
+
   prettier@3.7.4: {}
 
   prismjs@1.30.0: {}
@@ -5174,6 +5208,12 @@ snapshots:
       "@rollup/rollup-win32-x64-msvc": 4.49.0
       fsevents: 2.3.3
 
+  s.color@0.0.15: {}
+
+  sass-formatter@0.7.9:
+    dependencies:
+      suf-log: 2.5.3
+
   sax@1.4.3: {}
 
   semver@7.7.3: {}
@@ -5273,6 +5313,10 @@ snapshots:
   style-to-object@1.0.14:
     dependencies:
       inline-style-parser: 0.2.7
+
+  suf-log@2.5.3:
+    dependencies:
+      s.color: 0.0.15
 
   svgo@4.0.0:
     dependencies:

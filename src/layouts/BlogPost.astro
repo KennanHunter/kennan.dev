@@ -1,231 +1,257 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import '../styles/global.css';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import "../styles/global.css";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, archiveReason, archiveDate } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  archiveReason,
+  archiveDate,
+} = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			article {
-				max-width: 45em;
-				margin: 0 auto;
-				padding: 2em 1em;
-				text-align: center;
-			}
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      article {
+        max-width: 45em;
+        margin: 0 auto;
+        padding: 2em 1em;
+        text-align: center;
+      }
 
-			@media only screen and (max-width: 800px) {
-				article {
-					max-width: 100%;
-					padding: 1em;
-				}
-			}
+      @media only screen and (max-width: 800px) {
+        article {
+          max-width: 100%;
+          padding: 1em;
+        }
+      }
 
-			.hero-image {
-				width: 100%;
-				margin-bottom: 1.5em;
-			}
+      .hero-image {
+        width: 100%;
+        margin-bottom: 1.5em;
+      }
 
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				max-width: 100%;
-				border-radius: 8px;
-			}
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        border-radius: 8px;
+      }
 
-			h1 {
-				margin: 0 0 0.5em 0;
-				font-size: 2em;
-			}
+      h1 {
+        margin: 0 0 0.5em 0;
+        font-size: 2em;
+      }
 
-			.date {
-				margin-bottom: 1em;
-				opacity: 0.75;
-			}
+      .date {
+        margin-bottom: 1em;
+        opacity: 0.75;
+      }
 
-			.last-updated-on {
-				font-style: italic;
-			}
+      .last-updated-on {
+        font-style: italic;
+      }
 
-			.content {
-				text-align: left;
-			}
+      .content {
+        text-align: left;
+      }
 
-			.content :global(img) {
-				max-width: 100%;
-				max-height: 100%;
-			}
+      .content :global(img) {
+        max-width: 100%;
+        max-height: 100%;
+      }
 
-			.content :global(a) {
-				color: #458588;
-			}
+      .content :global(a) {
+        color: #458588;
+      }
 
-			.content :global(strong) {
-				font-weight: 900;
-				background-color: #d79921;
-				color: #121212;
-			}
+      .content :global(strong) {
+        font-weight: 900;
+        background-color: #d79921;
+        color: #121212;
+      }
 
-			.content :global(code) {
-				font-size: 16px;
-				font-family: "Fira Code", monospace;
-			}
+      .content :global(code) {
+        font-size: 16px;
+        font-family: "Fira Code", monospace;
+      }
 
-			.content :global(pre) {
-				padding: 1em;
-				border-radius: 8px;
-				border: 1px solid #a89984;
-				overflow-x: auto;
-				margin: 1.5em 0;
-			}
+      .content :global(pre) {
+        padding: 1em;
+        border-radius: 8px;
+        border: 1px solid #a89984;
+        overflow-x: auto;
+        margin: 1.5em 0;
+      }
 
-			.content :global(pre code) {
-				white-space: pre;
-				display: block;
-			}
+      .content :global(pre code) {
+        white-space: pre;
+        display: block;
+      }
 
-			.content :global(:not(pre) > code) {
-				padding: 0.15em 0.4em;
-				border-radius: 4px;
-				background-color: #252525;
-				border: 1px solid #a89984;
-			}
+      .content :global(:not(pre) > code) {
+        padding: 0.15em 0.4em;
+        border-radius: 4px;
+        background-color: #252525;
+        border: 1px solid #a89984;
+      }
 
-			.content :global(ul) {
-				margin: 1em 0;
-				padding-left: 2em;
-				list-style-type: disc;
-			}
+      .content :global(ul) {
+        margin: 1em 0;
+        padding-left: 2em;
+        list-style-type: disc;
+      }
 
-			.content :global(ol) {
-				margin: 1em 0;
-				padding-left: 2em;
-				list-style-type: decimal;
-			}
+      .content :global(ol) {
+        margin: 1em 0;
+        padding-left: 2em;
+        list-style-type: decimal;
+      }
 
-			.content :global(li) {
-				margin: 0.5em 0;
-			}
+      .content :global(li) {
+        margin: 0.5em 0;
+      }
 
-			.content :global(ul ul),
-			.content :global(ol ol),
-			.content :global(ul ol),
-			.content :global(ol ul) {
-				margin: 0.5em 0;
-			}
+      .content :global(ul ul),
+      .content :global(ol ol),
+      .content :global(ul ol),
+      .content :global(ol ul) {
+        margin: 0.5em 0;
+      }
 
-			.content :global(h1) {
-				margin: 1.5em 0 0.5em 0;
-				font-size: 2em;
-			}
+      .content :global(h1) {
+        margin: 1.5em 0 0.5em 0;
+        font-size: 2em;
+      }
 
-			.content :global(h2) {
-				margin: 1.5em 0 0.5em 0;
-				font-size: 1.5em;
-			}
+      .content :global(h2) {
+        margin: 1.5em 0 0.5em 0;
+        font-size: 1.5em;
+      }
 
-			.content :global(h3) {
-				margin: 1.5em 0 0.5em 0;
-				font-size: 1.25em;
-			}
+      .content :global(h3) {
+        margin: 1.5em 0 0.5em 0;
+        font-size: 1.25em;
+      }
 
-			.content :global(h4) {
-				margin: 1.5em 0 0.5em 0;
-				font-size: 1.1em;
-			}
+      .content :global(h4) {
+        margin: 1.5em 0 0.5em 0;
+        font-size: 1.1em;
+      }
 
-			.content :global(p) {
-				margin: 1em 0;
-				line-height: 1.6;
-			}
+      .content :global(p) {
+        margin: 1em 0;
+        line-height: 1.6;
+      }
 
-			.content :global(blockquote) {
-				border-left: 4px solid #458588;
-				margin: 1.5em 0;
-				padding: 0.5em 1em;
-				background-color: #252525;
-				border-radius: 0 8px 8px 0;
-			}
+      .content :global(blockquote) {
+        border-left: 4px solid #458588;
+        margin: 1.5em 0;
+        padding: 0.5em 1em;
+        background-color: #252525;
+        border-radius: 0 8px 8px 0;
+      }
 
-			.content :global(hr) {
-				border: none;
-				border-top: 1px solid #a89984;
-				margin: 2em 0;
-			}
+      .content :global(hr) {
+        border: none;
+        border-top: 1px solid #a89984;
+        margin: 2em 0;
+      }
 
-			.archive-warning {
-				background-color: #d79921;
-				border-radius: 8px;
-				padding: 1em 1.5em;
-				margin: 0 auto 1.5em auto;
-				color: #121212;
-				font-weight: 500;
-				text-align: left;
-			}
+      .archive-warning {
+        background-color: #d79921;
+        border-radius: 8px;
+        padding: 1em 1.5em;
+        margin: 0 auto 1.5em auto;
+        color: #121212;
+        font-weight: 500;
+        text-align: left;
+      }
 
-			.archive-warning strong {
-				background: none;
-				color: #121212;
-			}
+      .archive-warning strong {
+        background: none;
+        color: #121212;
+      }
 
-			.back-link {
-				display: block;
-				text-align: left;
-				margin-bottom: 1em;
-			}
+      .back-link {
+        display: block;
+        text-align: left;
+        margin-bottom: 1em;
+      }
 
-			.back-link a {
-				color: inherit;
-				text-decoration: none;
-			}
+      .back-link a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-			.back-link a:hover {
-				text-decoration: underline;
-			}
-		</style>
-	</head>
+      .back-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
 
-	<body class="bg-bg text-text min-h-screen">
-		<main>
-			<article>
-				<div class="back-link">
-					<a href="/blog">&larr; Back to Blog</a>
-				</div>
+  <body class="bg-bg text-text min-h-screen">
+    <main>
+      <article>
+        <div class="back-link">
+          <a href="/blog">&larr; Back to Blog</a>
+        </div>
 
-				{archiveReason && (
-					<div class="archive-warning">
-						<strong>⚠️ Archived{archiveDate && (<> on <FormattedDate date={archiveDate} /></>)}:</strong> {archiveReason}
-					</div>
-				)}
+        {
+          archiveReason && (
+            <div class="archive-warning">
+              <strong>
+                ⚠️ Archived
+                {archiveDate && (
+                  <>
+                    {" "}
+                    on <FormattedDate date={archiveDate} />
+                  </>
+                )}
+                :
+              </strong>{" "}
+              {archiveReason}
+            </div>
+          )
+        }
 
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
+        <div class="hero-image">
+          {
+            heroImage && (
+              <Image width={1020} height={510} src={heroImage} alt="" />
+            )
+          }
+        </div>
 
-				<h1>{title}</h1>
+        <h1>{title}</h1>
 
-				<div class="date">
-					Written: <FormattedDate date={pubDate} />
-					{updatedDate && (
-						<div class="last-updated-on">
-							Last updated on <FormattedDate date={updatedDate} />
-						</div>
-					)}
-				</div>
+        <div class="date">
+          Written: <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
 
-				<div class="content">
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+        <div class="content">
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
