@@ -1,0 +1,71 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<ul>
+		<li>
+			<a href="https://github.com/KennanHunter/">GitHub</a>
+		</li>
+		<li>
+			<a href="mailto:kennanhunter5@gmail.com">E-Mail</a>
+		</li>
+		<li>
+			<a href="/rss.xml">RSS Feed</a>
+		</li>
+		<li class="copyright">
+			<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">
+				This work is licensed under a Creative Commons Attribution 4.0 International License
+			</a>
+		</li>
+	</ul>
+</footer>
+
+<style>
+	footer {
+		min-height: 5em;
+		background-color: #252525;
+		padding: 1em 2em;
+		margin-top: 2em;
+		overflow: hidden;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		justify-items: center;
+		gap: 1em;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		flex-wrap: wrap;
+	}
+
+	li a {
+		color: #ffffff;
+		padding: 0.2em;
+		text-decoration: none;
+	}
+
+	li a:hover {
+		text-decoration: underline;
+	}
+
+	.copyright {
+		margin-left: auto;
+		max-width: 30em;
+		text-align: right;
+	}
+
+	.copyright a {
+		opacity: 0.75;
+	}
+
+	@media only screen and (max-width: 800px) {
+		.copyright {
+			margin: auto;
+			width: fit-content;
+			text-align: center;
+		}
+	}
+</style>

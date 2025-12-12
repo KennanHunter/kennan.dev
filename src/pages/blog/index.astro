@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import "../../styles/global.css";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.archiveDate && !post.data.archiveReason)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-bg text-text min-h-screen p-8">
+    <main class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold mb-8">Blog</h1>
+      <ul class="space-y-4">
+        {
+          posts.map((post) => (
+            <li>
+              <a
+                href={`/blog/${post.id}/`}
+                class="flex justify-between items-start gap-4 p-4 rounded-lg hover:bg-text/5 transition-colors"
+              >
+                <div class="flex flex-col">
+                  <h2 class="text-xl font-semibold">{post.data.title}</h2>
+                  {post.data.description && (
+                    <p class="text-text/70 mt-1">{post.data.description}</p>
+                  )}
+                </div>
+                <time class="text-text/60 whitespace-nowrap">
+                  <FormattedDate date={post.data.pubDate} />
+                </time>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </body>
+</html>
