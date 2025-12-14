@@ -1,0 +1,24 @@
+---
+import { meiToSvg, type MeiToSvgOptions } from "../server/verovio";
+
+interface Props {
+  mei: string;
+  options?: MeiToSvgOptions;
+  class?: string;
+}
+
+const { mei, options = {}, class: className } = Astro.props;
+
+const svg = await meiToSvg(mei, options);
+const meiBase64 = Buffer.from(mei).toString("base64");
+---
+
+<style>
+  .mei-score :global(svg) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+<div class:list={["mei-score", className]} data-mei={meiBase64} set:html={svg} />
