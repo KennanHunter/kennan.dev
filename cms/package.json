@@ -1,0 +1,15 @@
+{
+  "name": "cms",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "wrangler:deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "dependencies": {
+    "hono": "^4.11.1"
+  },
+  "devDependencies": {
+    "wrangler": "^4.54.0"
+  }
+}
