@@ -40,14 +40,16 @@ jobs:
 
       - name: install
         run: pnpm install
+        working-directory: ./site
 
       - run: pnpm build
+        working-directory: ./site
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload build directory
-          path: "./dist"
+          path: "./site/dist"
 
       - name: Deploy to GitHub Pages
         id: deployment

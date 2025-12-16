@@ -1,24 +1,14 @@
 {
-  "name": "kennan.dev",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "kennan.dev-monorepo",
+  "description": "",
+  "authors": "",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
     "format": "prettier -w ."
   },
+  "dependencies": {},
   "devDependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.5",
-    "prettier": "^3.7.4",
-    "prettier-plugin-astro": "^0.14.1",
-    "sharp": "^0.34.3",
-    "tailwindcss": "^4.1.18"
+    "prettier": "*",
+    "prettier-plugin-astro": "*"
   }
 }
