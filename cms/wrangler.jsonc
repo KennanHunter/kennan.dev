@@ -48,7 +48,7 @@
     {
       "binding": "CONTENT",
       "database_id": "5f9ef17a-e63b-470a-bd74-c833554ab4a5",
-      "migrations_dir": "CONTENT",
+      "migrations_dir": "migrations",
     },
   ],
   "r2_buckets": [
@@ -56,6 +56,12 @@
       "bucket_name": "kennan-dev-content-bucket",
       "binding": "kennan_dev_content_bucket",
       "remote": true,
+    },
+  ],
+  "routes": [
+    {
+      "pattern": "cms.kennan.dev",
+      "custom_domain": true,
     },
   ],
 }

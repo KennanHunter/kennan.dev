@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "wrangler dev",
     "wrangler:deploy": "wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "migrate": "wrangler d1 migrations apply CONTENT",
+    "migrate:remote": "wrangler d1 migrations apply CONTENT --remote"
   },
   "dependencies": {
     "hono": "^4.11.1"

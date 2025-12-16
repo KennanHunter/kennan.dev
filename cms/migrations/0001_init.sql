@@ -18,7 +18,7 @@ CREATE TABLE photo_version_blur (
     photo_version_id INTEGER PRIMARY KEY,
     blur_data TEXT NOT NULL,
     FOREIGN KEY (photo_version_id) REFERENCES photo_versions (id) ON DELETE CASCADE
-)
+);
 
 CREATE INDEX idx_photo_versions_photo_id ON photo_versions (photo_id);
 
@@ -27,7 +27,7 @@ CREATE TABLE photo_collection (
     description TEXT,
     created_at INTEGER NOT NULL,
     created_by TEXT
-)
+);
 
 CREATE TABLE photo_collection_photos (
     photo_collection_name TEXT REFERENCES photo_collection (name) ON DELETE CASCADE,

@@ -4,14 +4,14 @@ CREATE TABLE user(
     last_login INTEGER,
     invited_at INTEGER,
     invited_by TEXT
-)
+);
 
 CREATE TABLE permission_group (
     name TEXT PRIMARY KEY,
     description TEXT,
     created_at INTEGER,
     created_by TEXT
-)
+);
 
 CREATE TABLE user_permission_group (
     user_discord_client_id TEXT REFERENCES user(discord_client_id) ON DELETE CASCADE,
