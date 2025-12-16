@@ -1,0 +1,9 @@
+---
+import "../styles/global.css";
+import LoginStatus from "../components/auth/LoginStatus";
+---
+
+<div>
+  <LoginStatus client:only="solid-js" />
+  <slot />
+</div>

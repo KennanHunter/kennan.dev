@@ -25,7 +25,37 @@
    * Environment Variables
    * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
    */
-  // "vars": { "MY_VARIABLE": "production_value" }
+  "vars": {
+    "ENVIRONMENT": "production",
+  },
+  "env": {
+    "dev": {
+      "vars": {
+        "ENVIRONMENT": "dev",
+      },
+      // yes it's stupid we have to duplicate these in our configuration, these arn't inherited by environments
+      "d1_databases": [
+        {
+          "binding": "content_db",
+          "database_id": "5f9ef17a-e63b-470a-bd74-c833554ab4a5",
+          "migrations_dir": "migrations",
+        },
+      ],
+      "r2_buckets": [
+        {
+          "bucket_name": "kennan-dev-content-bucket",
+          "binding": "kennan_dev_content_bucket",
+          "remote": true,
+        },
+      ],
+      "routes": [
+        {
+          "pattern": "cms.kennan.dev",
+          "custom_domain": true,
+        },
+      ],
+    },
+  },
   /**
    * Note: Use secrets to store sensitive data.
    * https://developers.cloudflare.com/workers/configuration/secrets/
@@ -46,7 +76,7 @@
    */
   "d1_databases": [
     {
-      "binding": "CONTENT",
+      "binding": "content_db",
       "database_id": "5f9ef17a-e63b-470a-bd74-c833554ab4a5",
       "migrations_dir": "migrations",
     },
