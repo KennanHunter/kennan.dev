@@ -9,7 +9,7 @@ CREATE TABLE photo_versions (
     id SERIAL PRIMARY KEY,
     photo_id INTEGER REFERENCES photos (id) ON DELETE CASCADE,
     version_name TEXT NOT NULL,
-    url TEXT NOT NULL,
+    bucket_key TEXT NOT NULL,
     width INTEGER NOT NULL,
     height INTEGER NOT NULL
 );
